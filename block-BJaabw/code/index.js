@@ -10,11 +10,14 @@ minToSec(13) ➞ 780
 minToSec(2) ➞ 120
 */
 
+
 // - Write a Function Decleration for above problem
-function minToSec() {
-  // Your code
+function minToSec(n) {
+  return n*60;
 }
 // - Execute the function with required parameter
+console.log(minToSec(1));
+
 
 /* 2. 
 Create a function named isInRange which validates whether a number n is exclusively within the bounds of lower and upper.
@@ -26,14 +29,15 @@ isInRange(1, 10, 19); // false
 */
 
 // - Write a Function Decleration for above problem
-function isInRange() {
-  // Your code
+function isInRange(a,b,c) {
+  return ((a=>b=>c)||(a<=b<=c))? true:false;
 }
 // - Execute the function with required parameter
 
+console.log(isInRange(1,2,3));
+
+
 /* 2. calculateBMI
-
-
 Take two arguments weight and height and return `Underweight`, `Normal` etc based on data.
 
 Body mass index(BMI) is calculated as follows: bmi = weight / (height x height). Write a function which calculates bmi.
@@ -49,9 +53,17 @@ Obese: BMI is 30 or more
 
 */
 
-function calculateBMI() {
+function calculateBMI(weight,height) {
+  let bmi=weight/(height**2);
+  if(bmi>30){return `obese`}
+  else if(18.5<bmi){return `underweight`}
+  else if(18.5<bmi<24.9){return `normal weight`}
+  else if(24.9<=bmi<=29){return `over weight`}
+
   // Your code
 }
+console.log(calculateBMI(95,193));
+
 
 /* 3. appropiateDrinks
 
@@ -64,9 +76,15 @@ Create a function that take the age are return the appropiate drink based on the
 
 */
 
-function appropiateDrinks() {
-  // Your code
+function appropiateDrinks(age) {
+  if(age<14){return `drink fruit juice`}
+  else if(age<18){return 'drink soda'}
+  else if(age<21){return `drink fruit flavored beer`}
+  else {
+    return `drink throat-piercing vodka`;
+  }
 }
+console.log(appropiateDrinks(20));
 
 /* 4. Add two numers or string
 
@@ -79,13 +97,13 @@ Twist is when user passes anything other than number, or string value you should
 
 */
 
-function sum() {
-  // Your code
+function sum(a,b) {
+  return typeof(a)==typeof(b)?a+b:`enter valid values`
+ 
 }
+console.log(sum(2, 4));
+console.log(sum('Arya', 'Stark'));
+console.log(sum('Arya', 2));
+console.log(sum(null, 2));
+console.log(sum(undefined, 2));
 
-// Function Test
-sum(2, 4); // 4
-sum('Arya', 'Stark'); // "Arya Stark"
-sum('Arya', 2); // Enter valid Values
-sum(null, 2); // Enter valid Values
-sum(undefined, 2); // Enter valid Values
